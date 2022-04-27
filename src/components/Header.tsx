@@ -102,11 +102,9 @@ const logoMotion = {
 const navMotion = {
   top: {
     backgroundColor: "rgba(20, 20, 20, 0)",
-    boxShadow: "0px 1px 10px rgba(34, 34, 34, 0ﬁ)"
   },
   scroll: {
     backgroundColor: "rgba(20, 20, 20, 1)",
-    boxShadow: "0px 1px 10px rgba(34, 34, 34, 1)"
   },
 }
 
