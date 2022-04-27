@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./routes/Home";
 import Search from "./routes/Search";
@@ -19,6 +20,7 @@ function App() {
           <Route path="movie/:movieId" />
         </Route>
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
