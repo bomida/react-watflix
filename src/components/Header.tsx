@@ -56,7 +56,7 @@ const Circle = styled(motion.span)`
   height: 5px;
   margin: 0 auto;
   border-radius: 50%;
-  background-color: ${props => props.theme.color.red};
+  background-color: ${props => props.theme.white.lighter};
 `;
 
 const Search = styled.form`
@@ -113,7 +113,7 @@ interface IForm {
 }
 
 function Header() {
-  const homeMatch = useMatch("/");
+  const homeMatch = useMatch("/react-watflix");
   const tvMatch = useMatch("tv");
   const [searchOpen, setSearchOpen] = useState(false);
   const toggleSearch = () => setSearchOpen(prev => !prev);
@@ -133,7 +133,7 @@ function Header() {
         navAnimation.start("top");
       }
     });
-  }, []);
+  }, [scrollY, navAnimation]);
   return (
     <Nav
       variants={navMotion}
