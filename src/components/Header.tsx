@@ -14,7 +14,7 @@ const Nav = styled(motion.nav)`
   z-index: 10;
   width: 100%;
   padding: 20px 60px;
-  `;
+`;
 
 const Col = styled.div`
   display: flex;
@@ -101,10 +101,12 @@ const logoMotion = {
 
 const navMotion = {
   top: {
-    backgroundColor: "rgba(20, 20, 20, 0)"
+    backgroundColor: "rgba(20, 20, 20, 0)",
+    boxShadow: "0px 1px 10px rgba(34, 34, 34, 0ﬁ)"
   },
   scroll: {
-    backgroundColor: "rgba(20, 20, 20, 1)"
+    backgroundColor: "rgba(20, 20, 20, 1)",
+    boxShadow: "0px 1px 10px rgba(34, 34, 34, 1)"
   },
 }
 

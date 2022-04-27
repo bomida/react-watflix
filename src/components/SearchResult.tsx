@@ -33,6 +33,7 @@ const ResultImg = styled.div<{ bgphoto: string }>`
 const ResultTitle = styled(motion.div)`
   opacity: 0;
   padding: 20px 5px 0;
+  font-size: 14px;
 `;
 
 const movieMotion = {

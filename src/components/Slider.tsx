@@ -52,9 +52,9 @@ background-size: cover;
 
 const BoxItemTitle = styled(motion.span)`
 position: absolute;
-bottom: -36px;
+bottom: -35px;
 padding: 0 5px;
-font-size: 15px;
+font-size: 14px;
 opacity: 0;
 `;
 
