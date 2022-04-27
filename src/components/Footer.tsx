@@ -4,7 +4,7 @@ const FooterWrap = styled.div`
 display: flex;
 justify-content: space-between;
 align-items: center;
-padding: 40px 60px 40px;
+padding: 30px 60px;
 color: ${props => props.theme.white.darker};
 font-size: 14px;
 background-color: ${props => props.theme.black.lighter};

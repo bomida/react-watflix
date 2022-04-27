@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 
 const SliderContainer = styled.div`
   position: relative;
-  top: -100px;
+  top: -60px;
 `;
 
 function Home() {
