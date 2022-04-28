@@ -12,11 +12,12 @@ import Slider from "../components/Slider";
 
 const Wrapper = styled.div`
   height: max-content;
+  padding-bottom: 40px;
 `;
 
 const SliderContainer = styled.div`
   position: relative;
-  top: -60px;
+  margin-top: -80px;
 `;
 
 function Home() {
