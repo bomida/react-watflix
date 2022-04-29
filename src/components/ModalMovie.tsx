@@ -122,17 +122,17 @@ const SimilarWrapper = styled(motion.div)`
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   padding: 0 40px 40px 40px;
-  
 `;
 
 const SimilarBox = styled(motion.div)`
   overflow: hidden;
   border-radius: 5px;
+  background-color: ${props => props.theme.black.lighter};
   box-shadow: 0px 0px 8px 3px rgba(24, 24, 24, 0.5);
 `;
 
 const SimilarBoxImg = styled.div <{ bgphoto: string }>`
-  padding-top: 150px;
+  height: 150px;
   background-image: url(${props => props.bgphoto});
   background-size: cover;
 `;
@@ -187,7 +187,6 @@ function Modal({ data, category, type }: IModal) {
   const hour = time && Math.floor(time / 60);
   const minutes = time && time % 60;
 
-
   return (
     <AnimatePresence>
       {movieMatch ?
@@ -234,16 +233,16 @@ function Modal({ data, category, type }: IModal) {
             </> : null}
             <SimilarTitle>Recommend</SimilarTitle>
             <SimilarWrapper>
-              {similar?.results.slice(0, 9).map(movie =>
+              {similar?.results.slice(0, 9).map(source =>
                 <SimilarBox
-                  key={movie.id}
+                  key={source.id}
                   whileHover={{ scale: 1.1 }}
                   transition={{ type: "tween", delay: 0.3, }}
                 >
-                  <SimilarBoxImg bgphoto={MakeImgPath(movie.backdrop_path, "w300")} />
+                  <SimilarBoxImg bgphoto={MakeImgPath(source.backdrop_path, "w300")} />
                   <SimilarBoxInfo>
-                    <h6>{movie.title.length > 30 ? `${movie.title.slice(0, 30)}...` : movie.title}</h6>
-                    <p>{movie.overview.length > 100 ? `${movie.overview.slice(0, 100)}...` : movie.overview}</p>
+                    <h6>{source.title.length > 30 ? `${source.title.slice(0, 30)}...` : source.title}</h6>
+                    <p>{source.overview.length <= 0 ? "No Overview" : (source.overview.length > 100 ? `${source.overview.slice(0, 100)}...` : source.overview)}</p>
                   </SimilarBoxInfo>
                 </SimilarBox>
               )}

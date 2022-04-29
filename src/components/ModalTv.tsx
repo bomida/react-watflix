@@ -123,12 +123,12 @@ const SimilarWrapper = styled(motion.div)`
   grid-template-columns: repeat(3, 1fr);
   gap: 10px;
   padding: 0 40px 40px 40px;
-  
 `;
 
 const SimilarBox = styled(motion.div)`
   overflow: hidden;
   border-radius: 5px;
+  background-color: ${props => props.theme.black.lighter};
   box-shadow: 0px 0px 8px 3px rgba(24, 24, 24, 0.5);
 `;
 
@@ -237,7 +237,7 @@ function Modal({ data, category, type }: IModal) {
                   <SimilarBoxImg bgphoto={MakeImgPath(source.backdrop_path, "w300")} />
                   <SimilarBoxInfo>
                     <h6>{source.name.length > 30 ? `${source.name.slice(0, 30)}...` : source.name}</h6>
-                    <p>{source.overview.length > 100 ? `${source.overview.slice(0, 100)}...` : source.overview}</p>
+                    <p>{source.overview.length <= 0 ? "No Overview" : (source.overview.length > 100 ? `${source.overview.slice(0, 100)}...` : source.overview)}</p>
                   </SimilarBoxInfo>
                 </SimilarBox>
               )}
