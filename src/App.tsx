@@ -1,3 +1,4 @@
+import { lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -6,6 +7,7 @@ import Onboarding from "./routes/Onboarding";
 import Play from "./routes/Play";
 import Search from "./routes/Search";
 import Tv from "./routes/Tv";
+
 
 function App() {
   return (
@@ -22,7 +24,7 @@ function App() {
         <Route path="/movie/*" element={<Movie />}>
           <Route path="movie/:movieId" />
         </Route>
-        <Route path="/react-watflix" element={<Onboarding />} />
+        <Route path="/*" element={<Onboarding />} />
       </Routes>
       <Footer />
     </BrowserRouter>
