@@ -20,12 +20,13 @@ const Keyword = styled.p`
 `;
 
 const ResultBox = styled(motion.div)`
-  `;
+`;
 
 const ResultImg = styled.div<{ bgphoto: string }>`
   aspect-ratio: 3 / 4.5;
   cursor: pointer;
   border-radius: 5px;
+  background-color: ${props => props.theme.black.lighter};
   background-image: url(${props => props.bgphoto});
   background-size: cover;
 `;

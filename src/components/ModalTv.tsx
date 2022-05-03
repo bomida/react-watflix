@@ -82,7 +82,7 @@ const ModalBedge = styled.div`
   }
   span:nth-child(3) {
     margin: 0 10px;
-    color: ${props => props.theme.color.green};
+    color: ${props => props.theme.color.main};
   }
 `;
 

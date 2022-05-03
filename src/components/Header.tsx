@@ -22,12 +22,12 @@ const Col = styled.div`
 `;
 
 const Logo = styled(motion.svg)`
-  height: 25px;
+  width: 80px;
   margin-right: 30px;
-  fill: ${props => props.theme.color.red};
+  fill: ${props => props.theme.color.main};
   path {
-    stroke: ${props => props.theme.color.red};
-    stroke-width: 4;
+    stroke: ${props => props.theme.color.main};
+    stroke-width: 1;
   }
 `;
 
@@ -40,8 +40,8 @@ const List = styled.li`
   justify-content: center;
   position: relative;
   margin-right: 10px;
-  color: ${props => props.theme.white.lighter};
-  transition: .3s ease-in-out;
+  color: ${props => props.theme.white.normal};
+  transition: 0.3s ease-in-out;
   &:hover {
     color: ${props => props.theme.white.darker};
   }
@@ -65,6 +65,10 @@ const Search = styled.form`
   position: relative;
   cursor: pointer;
   color: ${props => props.theme.white.normal};
+  transition: 0.3s ease-in-out;
+  &:hover {
+    color: ${props => props.theme.white.darker};
+  }
   svg {
     height: 25px;
   }
@@ -90,21 +94,21 @@ const Input = styled(motion.input)`
 
 const logoMotion = {
   hidden: {
-    fill: "rgba(229, 16, 19, 0)",
+    fill: "rgba(144, 254, 6, 0)",
     pathLength: 0,
   },
   active: {
-    fill: "rgba(229, 16, 19, 1)",
+    fill: "rgba(144, 254, 6, 1)",
     pathLength: 1,
   },
 }
 
 const navMotion = {
   top: {
-    backgroundColor: "rgba(20, 20, 20, 0)",
+    backgroundColor: "rgba(0, 0, 0, 0)",
   },
   scroll: {
-    backgroundColor: "rgba(20, 20, 20, 1)",
+    backgroundColor: "rgba(0, 0, 0, 1)",
   },
 }
 
@@ -144,7 +148,7 @@ function Header() {
         <Link to="/">
           <Logo
             xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 1024 276.742"
+            viewBox="0 0 214 82"
           >
             <motion.path
               variants={logoMotion}
@@ -154,7 +158,16 @@ function Header() {
                 default: { duration: 2 },
                 fill: { duration: 1, delay: 1 },
               }}
-              d="M140.803 258.904c-15.404 2.705-31.079 3.516-47.294 5.676l-49.458-144.856v151.073c-15.404 1.621-29.457 3.783-44.051 5.945v-276.742h41.08l56.212 157.021v-157.021h43.511v258.904zm85.131-157.558c16.757 0 42.431-.811 57.835-.811v43.24c-19.189 0-41.619 0-57.835.811v64.322c25.405-1.621 50.809-3.785 76.482-4.596v41.617l-119.724 9.461v-255.39h119.724v43.241h-76.482v58.105zm237.284-58.104h-44.862v198.908c-14.594 0-29.188 0-43.239.539v-199.447h-44.862v-43.242h132.965l-.002 43.242zm70.266 55.132h59.187v43.24h-59.187v98.104h-42.433v-239.718h120.808v43.241h-78.375v55.133zm148.641 103.507c24.594.539 49.456 2.434 73.51 3.783v42.701c-38.646-2.434-77.293-4.863-116.75-5.676v-242.689h43.24v201.881zm109.994 49.457c13.783.812 28.377 1.623 42.43 3.242v-254.58h-42.43v251.338zm231.881-251.338l-54.863 131.615 54.863 145.127c-16.217-2.162-32.432-5.135-48.648-7.838l-31.078-79.994-31.617 73.51c-15.678-2.705-30.812-3.516-46.484-5.678l55.672-126.75-50.269-129.992h46.482l28.377 72.699 30.27-72.699h47.295z" />
+              d="M21.1077 33.5095L15.0369 64.1588L14.9214 64.1914L13.8893 35.5453L3.4948 38.4769L7.35771 79.2116L19.1382 75.8891L24.8578 46.1589L24.9733 46.1264L26.4143 73.837L38.1948 70.5146L48.4222 25.806L38.0277 28.7376L32.9386 59.11L32.8231 59.1426L30.8093 30.7734L21.1077 33.5095ZM63.786 30.0253L59.4904 48.9856L65.4961 47.2918L63.9015 29.9927L63.786 30.0253ZM71.2509 19.3677L78.1167 59.2555L66.6827 62.4802L66.1426 55.3103L57.596 57.7207L55.9417 65.5094L44.681 68.6853L57.738 23.1787L71.2509 19.3677ZM88.3712 23.7944L85.8932 57.0623L96.6342 54.033L99.1122 20.7652L107.197 18.4851L107.901 9.03124L81.1063 16.5881L80.4021 26.042L88.3712 23.7944Z" />
+            <motion.path
+              variants={logoMotion}
+              initial="hidden"
+              animate="active"
+              transition={{
+                default: { duration: 2 },
+                fill: { duration: 1, delay: 1 },
+              }}
+              d="M109.258 29.7354L106.426 72.4817L117.167 69.4525L118.333 51.851L131.153 48.2355L131.732 39.4946L118.912 43.1102L119.396 35.8062L133.082 31.9463L133.685 22.8463L109.258 29.7354ZM138.793 21.4058L135.961 64.1521L159.926 57.3933L160.529 48.2932L147.305 52.0228L149.534 18.3765L138.793 21.4058ZM166.851 13.4924L164.02 56.2387L174.761 53.2094L177.592 10.4631L166.851 13.4924ZM181.448 9.37574L189.118 27.8926L178.096 52.2686L189.935 48.9299L194.887 34.9018L195.003 34.8692L198.25 46.5847L210.262 43.1971L202.054 24.2444L212.4 0.646211L200.389 4.03379L196.161 17.3875L196.045 17.4201L193.459 5.98816L181.448 9.37574Z" />
           </Logo>
         </Link>
         <Lists>

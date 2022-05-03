@@ -1,10 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { type } from "os";
-import { useMatch, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { MakeImgPath } from "../api/Utility";
-import ModalMovie from "./ModalMovie";
-import ModalTv from "./ModalTv";
 
 const BannerWrap = styled.div<{ bgphoto: string }>`
   display: flex;
@@ -14,7 +11,7 @@ const BannerWrap = styled.div<{ bgphoto: string }>`
   width: 100%;
   height: 90vh;
   padding: 0 60px;
-  background-image: linear-gradient(rgba(20, 20, 20, 0.5) 0%, rgba(20, 20, 20, 0) 12%, rgba(20, 20, 20, 0) 35%, rgba(20, 20, 20, 1) 99%), url(${props => props.bgphoto});
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 12%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 1) 99%), url(${props => props.bgphoto});
   background-size: cover;
 `;
 
@@ -22,7 +19,6 @@ const TopTitle = styled.h6`
   margin-bottom: 20px;
   font-size: 20px;
   font-weight: 600;
-  /* background-color: ${props => props.theme.color.red}; */
 `;
 
 const BannerTitle = styled.h2`
@@ -71,8 +67,8 @@ function Banner({ data, category, type, title }: IBanner) {
       <BannerOverview>{data?.results[0].overview.length > 100 ? `${data?.results[0].overview.slice(0, 100)}...` : data?.results[0].overview}</BannerOverview>
       <AnimatePresence>
         <BannerDetail
-          layoutId={`${data.id}${category}${type}`}
           onClick={() => onBoxClicked(data?.results[0].id!)}
+          layoutId={`${data?.id}${category}${type}`}
         >Detail</BannerDetail>
       </AnimatePresence>
     </BannerWrap>
