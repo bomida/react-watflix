@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/react-watflix/static/js/main.27198a7e.js",
+    "main.js": "/react-watflix/static/js/main.0fa55044.js",
     "index.html": "/react-watflix/index.html",
-    "main.27198a7e.js.map": "/react-watflix/static/js/main.27198a7e.js.map"
+    "main.0fa55044.js.map": "/react-watflix/static/js/main.0fa55044.js.map"
   },
   "entrypoints": [
-    "static/js/main.27198a7e.js"
+    "static/js/main.0fa55044.js"
   ]
 }
