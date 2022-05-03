@@ -22,7 +22,7 @@ function App() {
         <Route path="/movie/*" element={<Movie />}>
           <Route path="movie/:movieId" />
         </Route>
-        <Route path="/" element={<Onboarding />} />
+        <Route path="/react-watflix" element={<Onboarding />} />
       </Routes>
       <Footer />
     </BrowserRouter>

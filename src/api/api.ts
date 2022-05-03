@@ -89,6 +89,16 @@ export interface ISearch {
   results: ISliderCommon[];
 }
 
+interface IMovieTrailer {
+  key: string;
+  id: string;
+}
+
+export interface IGetMoviesTrailer {
+  id: number;
+  results: IMovieTrailer[];
+}
+
 
 // movie
 
@@ -109,6 +119,11 @@ export function getUpcoming() {
 
 export function getMovieDetail(movieId?: string) {
   return fetch(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`)
+    .then(response => response.json());
+}
+
+export function getMovieTrailer(key?: string) {
+  return fetch(`${BASE_URL}/movie/${key}/videos?api_key=${API_KEY}&language=en-US`)
     .then(response => response.json());
 }
 

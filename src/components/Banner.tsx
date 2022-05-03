@@ -39,8 +39,8 @@ const BannerDetail = styled(motion.span)`
   border: 1px solid ${props => props.theme.white.darker};
   border-radius: 5px;
   background-color: rgba(255, 255, 255, 0.2);
-  transition: .3s ease-in-out;
-  &:hover{
+  transition: .3s ease -in -out;
+    &:hover{
     color: ${props => props.theme.white.normal};
     border: 1px solid ${props => props.theme.white.lighter};
   }
@@ -56,8 +56,9 @@ interface IBanner {
 function Banner({ data, category, type, title }: IBanner) {
   const navigate = useNavigate();
   const onBoxClicked = (categoryId: number) => {
-    navigate(`/${category}/${type}/${categoryId}`);
+    navigate(`/${category}/${type}/${categoryId} `);
   };
+
   return (
     <BannerWrap
       bgphoto={MakeImgPath(data?.results[0].backdrop_path || "")}
