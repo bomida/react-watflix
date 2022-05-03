@@ -117,7 +117,7 @@ interface IForm {
 }
 
 function Header() {
-  const homeMatch = useMatch("/react-watflix");
+  const homeMatch = useMatch("/movie");
   const tvMatch = useMatch("tv");
   const [searchOpen, setSearchOpen] = useState(false);
   const toggleSearch = () => setSearchOpen(prev => !prev);
