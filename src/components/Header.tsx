@@ -145,7 +145,7 @@ function Header() {
       animate={navAnimation}
     >
       <Col>
-        <Link to="/">
+        <Link to="movie">
           <Logo
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 214 82"
@@ -172,7 +172,7 @@ function Header() {
         </Link>
         <Lists>
           <List>
-            <Link to="/">Home{homeMatch && <Circle layoutId="circle" />}</Link>
+            <Link to="movie">Movie{homeMatch && <Circle layoutId="circle" />}</Link>
           </List>
           <List>
             <Link to="tv">Tv Show{tvMatch && <Circle layoutId="circle" />}</Link>

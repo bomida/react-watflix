@@ -1,9 +1,10 @@
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence, motion, useViewportScroll } from "framer-motion";
 import { useQuery } from "react-query";
-import { useMatch, useNavigate } from "react-router-dom";
+import { Link, useMatch, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { isPropertyAccessExpression } from "typescript";
 import {
   getCredits,
   getMovieDetail,
@@ -45,15 +46,29 @@ const ModalWrap = styled(motion.div)`
 
 const ModalImg = styled.div<{ bgphoto: string }>`
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
   height: 450px;
-  padding: 0 0 40px 40px;
+  padding: 0 0 80px 40px;
   background-image: linear-gradient(180deg, rgba(34,34,34,0) 65%, rgba(34,34,34,1) 100%), url(${props => props.bgphoto});
   background-size: cover;
-
-  h3{
+  h3 {
     font-size: 40px;
     font-weight: 600;
+    margin-bottom: 20px;
+  }
+  span {
+    display: inline-block;
+    width: 90px;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: ${props => props.theme.white.normal};
+    color: ${props => props.theme.black.normal};
+    &:hover {
+      background-color: ${props => props.theme.white.lighter};
+    }
   }
 `;
 
@@ -162,7 +177,7 @@ function Modal({ data, category, type }: IModal) {
   // const { scrollY } = useViewportScroll();
   const movieMatch = useMatch(`/${category}/${type}/:movieId`);
   const navigate = useNavigate();
-  const onOverlayClick = () => navigate('/');
+  const onOverlayClick = () => navigate('/movie');
   const clickedMovie =
     movieMatch?.params.movieId &&
     data?.results.find(
@@ -203,6 +218,10 @@ function Modal({ data, category, type }: IModal) {
             {clickedMovie && detail ? <>
               <ModalImg bgphoto={MakeImgPath(clickedMovie.backdrop_path)}>
                 <h3>{clickedMovie?.title}</h3>
+                <span>
+                  <FontAwesomeIcon style={{ width: "30px" }} icon={faPlay} />
+                  Play
+                </span>
               </ModalImg>
               <ModalTextInfo>
                 <TextInfoLeft>

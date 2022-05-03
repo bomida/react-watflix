@@ -162,7 +162,10 @@ function Slider({ data, category, type, title }: ISlider) {
           initial="hidden"
           animate="visible"
           exit="exit"
-          transition={{ type: "tween", duration: 1.3 }}
+          transition={{
+            type: "tween",
+            duration: 1.3
+          }}
         >
           {data?.results
             .slice(1)

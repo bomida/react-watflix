@@ -1,4 +1,4 @@
-import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence, motion } from "framer-motion";
 import { useQuery } from "react-query";
@@ -45,15 +45,29 @@ const ModalWrap = styled(motion.div)`
 
 const ModalImg = styled.div<{ bgphoto: string }>`
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
   height: 450px;
-  padding: 0 0 40px 40px;
+  padding: 0 0 80px 40px;
   background-image: linear-gradient(180deg, rgba(34,34,34,0) 65%, rgba(34,34,34,1) 100%), url(${props => props.bgphoto});
   background-size: cover;
-
-  h3{
+  h3 {
     font-size: 40px;
     font-weight: 600;
+    margin-bottom: 20px;
+  }
+  span {
+    display: inline-block;
+    width: 90px;
+    padding: 10px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: ${props => props.theme.white.normal};
+    color: ${props => props.theme.black.normal};
+    &:hover {
+      background-color: ${props => props.theme.white.lighter};
+    }
   }
 `;
 
@@ -84,6 +98,11 @@ const ModalBedge = styled.div`
     margin: 0 10px;
     color: ${props => props.theme.color.main};
   }
+`;
+
+const SeasonInfo = styled.span`
+  display: inline-block;
+  margin-top: 10px;
 `;
 
 const TextInfoRight = styled.div`
@@ -197,17 +216,23 @@ function Modal({ data, category, type }: IModal) {
             {clickedTv && detail ? <>
               <ModalImg bgphoto={MakeImgPath(clickedTv.backdrop_path)}>
                 <h3>{clickedTv?.name}</h3>
+                <span>
+                  <FontAwesomeIcon style={{ width: "30px" }} icon={faPlay} />
+                  Play
+                </span>
               </ModalImg>
               <ModalTextInfo>
                 <TextInfoLeft>
                   <ModalBedge>
-                    <span>{`${detail?.first_air_date.slice(0, 4)}-${detail?.last_air_date.slice(0, 4)}`}</span>
-                    <span>{detail.episode_run_time}min</span>
-                    <span>
-                      <FontAwesomeIcon style={{ marginRight: "5px" }} icon={faStar} />
-                      {detail?.vote_average}
-                    </span>
-                    <span>{detail.number_of_seasons} Season / {detail.number_of_episodes} episodes</span>
+                    <div>
+                      <span>{`${detail?.first_air_date.slice(0, 4)}-${detail?.last_air_date.slice(0, 4)}`}</span>
+                      <span>{detail.episode_run_time}min</span>
+                      <span>
+                        <FontAwesomeIcon style={{ marginRight: "5px" }} icon={faStar} />
+                        {detail?.vote_average}
+                      </span>
+                    </div>
+                    <SeasonInfo>{detail.number_of_seasons} Season / {detail.number_of_episodes} episodes</SeasonInfo>
                   </ModalBedge>
                   <h4>{detail.tagline}</h4>
                   <p>{detail?.overview}</p>

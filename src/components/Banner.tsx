@@ -22,8 +22,8 @@ const TopTitle = styled.h6`
 `;
 
 const BannerTitle = styled.h2`
-font-size: 60px;
-font-weight: 600;
+  font-size: 60px;
+  font-weight: 600;
 `;
 
 const BannerOverview = styled.span`
