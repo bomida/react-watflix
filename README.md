@@ -15,7 +15,7 @@
 <img width="640" alt="ModalMovie" src="https://user-images.githubusercontent.com/93115007/166825319-6f4b26eb-bbb3-4a90-bd82-2f7f0367a7bb.png">
 
 ### Modal Tv
-<img width="640" alt="ModalTv" src="https://user-images.githubusercontent.com/93115007/166825347-66cf1897-413c-4747-ae95-9d7e4872e09c.png">
+<img width="640" alt="ModalTv" src="https://user-images.githubusercontent.com/93115007/166827809-b6e11942-4dcc-4aac-8acd-05e1e7da35ee.png">
 
 
 <br>
@@ -34,7 +34,7 @@
   - 스크롤을 하면 header의 배경이 생겨납니다.
   - 돋보기 아이콘을 누르면 input이 나타나며, 2자 이상 keyword를 검색하면 해당 keyword에 대한 결과물들이 보여집니다.
   - 해당 페이지에 있을 시 Navigator의 하단에 붉은 점이 보여집니다.
-  - window의 width값이 950 이하가 되었을 때 모바일 사용 지원 경고 메시지가 뜹니다.
+  - window의 width값이 950px 이하가 되었을 때 모바일 사용 지원 경고 메시지가 뜹니다.
 
 <br>
 
