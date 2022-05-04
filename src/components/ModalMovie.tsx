@@ -1,4 +1,4 @@
-import { faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus, faPlay, faPlugCirclePlus, faPlus, faPlusCircle, faStar, faThumbsUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence, motion, useViewportScroll } from "framer-motion";
 import { useQuery } from "react-query";
@@ -16,7 +16,6 @@ import {
   ISliderCommon
 } from "../api/api";
 import { MakeImgPath } from "../api/Utility";
-import Play from "../Router";
 
 const Overlay = styled(motion.div)`
   position: fixed;
@@ -59,17 +58,37 @@ const ModalImg = styled.div<{ bgphoto: string }>`
     font-weight: 600;
     margin-bottom: 20px;
   }
+`;
+
+const BtnContainer = styled.div`
   span {
     display: inline-block;
-    width: 90px;
-    padding: 10px 10px;
+    margin-right: 10px;
     cursor: pointer;
-    border-radius: 5px;
-    background-color: ${props => props.theme.white.normal};
-    color: ${props => props.theme.black.normal};
-    &:hover {
+  }
+`;
+
+const PlayBtn = styled.span`
+  width: 90px;
+  padding: 10px 10px;
+  color: ${props => props.theme.black.normal};
+  border-radius: 5px;
+  background-color: ${props => props.theme.white.normal};
+  &:hover {
       background-color: ${props => props.theme.white.lighter};
     }
+`;
+
+const CircleBtn = styled.span`
+  width: 36px;
+  height: 36px;
+  padding: 8px;
+  text-align: center;
+  border: 2px solid ${props => props.theme.white.normal};
+  border-radius: 50%;
+  transition: 0.2s ease-in-out;
+  &:hover {
+    transform: scale(1.05);
   }
 `;
 
@@ -219,12 +238,18 @@ function Modal({ data, category, type }: IModal) {
             {clickedMovie && detail ? <>
               <ModalImg bgphoto={MakeImgPath(clickedMovie.backdrop_path)}>
                 <h3>{clickedMovie?.title}</h3>
-                <Link to={`${clickedMovie?.id}/play`}>
-                  <span>
+                <BtnContainer>
+                  <PlayBtn>
                     <FontAwesomeIcon style={{ width: "30px" }} icon={faPlay} />
                     Play
-                  </span>
-                </Link>
+                  </PlayBtn>
+                  <CircleBtn>
+                    <FontAwesomeIcon icon={faPlus} />
+                  </CircleBtn>
+                  <CircleBtn>
+                    <FontAwesomeIcon icon={faThumbsUp} />
+                  </CircleBtn>
+                </BtnContainer>
               </ModalImg>
               <ModalTextInfo>
                 <TextInfoLeft>

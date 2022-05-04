@@ -3,16 +3,19 @@
 
 ## 최종 결과물
 ### Home
-<img width="640" alt="Home" src="https://user-images.githubusercontent.com/93115007/165537514-f07616e2-a6c2-4547-975e-be0ff8a6e1c1.png">
+<img width="640" alt="Home" src="https://user-images.githubusercontent.com/93115007/166824917-43609cb5-4952-453e-96ab-d1b11f9a770e.png">
 
 ### Tv Show
-<img width="640" alt="Home" src="https://user-images.githubusercontent.com/93115007/165537837-2ed9e6ad-08d2-4726-9f38-ba27ccfdec84.png">
+<img width="640" alt="TvShow" src="https://user-images.githubusercontent.com/93115007/166824964-af89a733-4006-4a83-b60e-bc1f69179f91.png">
 
 ### Sliders
-<img width="640" alt="Home" src="https://user-images.githubusercontent.com/93115007/165537918-80f41f7b-8988-4d3a-8918-5330844b6752.png">
+<img width="640" alt="Sliders" src="https://user-images.githubusercontent.com/93115007/166825287-6c48d93c-f3f3-4655-934e-003675a11772.png">
 
-### Modal
-<img width="640" alt="Home" src="https://user-images.githubusercontent.com/93115007/165537908-1649b091-6f30-4411-8541-021b84010ae8.png">
+### Modal Movie
+<img width="640" alt="ModalMovie" src="https://user-images.githubusercontent.com/93115007/166825319-6f4b26eb-bbb3-4a90-bd82-2f7f0367a7bb.png">
+
+### Modal Tv
+<img width="640" alt="ModalTv" src="https://user-images.githubusercontent.com/93115007/166825347-66cf1897-413c-4747-ae95-9d7e4872e09c.png">
 
 
 <br>
@@ -31,6 +34,7 @@
   - 스크롤을 하면 header의 배경이 생겨납니다.
   - 돋보기 아이콘을 누르면 input이 나타나며, 2자 이상 keyword를 검색하면 해당 keyword에 대한 결과물들이 보여집니다.
   - 해당 페이지에 있을 시 Navigator의 하단에 붉은 점이 보여집니다.
+  - window의 width값이 950 이하가 되었을 때 모바일 사용 지원 경고 메시지가 뜹니다.
 
 <br>
 
@@ -53,11 +57,8 @@
 <br>
 
 ## 업데이트 예정
-  - [ ] 2자 이하 검색 시 SearchResult 페이지에 오류 메시지 띄우기.
-  - [ ] Banner에 영화나 시리즈 정보를 api의 첫번째 오브젝트로 고정하지 않고,<br>
-  rerendering될 때마다 랜덤으로 새로운 데이터를 보여주도록 한다.
   - [ ] Banner화면에 해당 영화에 대한 영상을 재생하도록한다.
-  - [ ] 미디어 쿼리 적용.
+  - [x] 미디어 쿼리 적용.
 
 <br>
 

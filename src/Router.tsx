@@ -7,7 +7,7 @@ import Search from "./routes/Search";
 import Tv from "./routes/Tv";
 
 
-function Play() {
+function Router() {
   return (
     <BrowserRouter>
       <Header />
@@ -28,4 +28,4 @@ function Play() {
   );
 }
 
-export default Play;
+export default Router;
