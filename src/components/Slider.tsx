@@ -133,64 +133,66 @@ function Slider({ data, category, type, title }: ISlider) {
   }
 
 
-  return (<>
-    <SliderTitle>{title}</SliderTitle>
-    <ItemSlider>
-      <SliderBtnContainer
-        style={{ left: 0 }}
-        variants={sliderMotion}
-      >
-        <FontAwesomeIcon
-          onClick={decreaseIndex}
-          icon={faAngleLeft} size="2x" />
-      </SliderBtnContainer>
-      <SliderBtnContainer
-        style={{ right: 0 }}
-        variants={sliderMotion}
-      >
-        <FontAwesomeIcon
-          onClick={increaseIndex}
-          icon={faAngleRight} size="2x" />
-      </SliderBtnContainer>
-      <AnimatePresence
-        initial={false}
-        onExitComplete={toggleLeaving}
-      >
-        <SliderLists
-          key={index}
+  return (
+    <>
+      <SliderTitle>{title}</SliderTitle>
+      <ItemSlider>
+        <SliderBtnContainer
+          style={{ left: 0 }}
           variants={sliderMotion}
-          initial="hidden"
-          animate="visible"
-          exit="exit"
-          transition={{
-            type: "tween",
-            duration: 1.3
-          }}
         >
-          {data?.results
-            .slice(1)
-            .slice(offset * index, offset * index + offset)
-            .map((source: ISliderCommon) =>
-              <ListBoxItems
-                key={source.id}
-                onClick={() => onBoxClicked(source.id)}
-                variants={movieMotion}
-                whileHover="hover"
-                transition={{ type: "tween" }}
-                layoutId={`${source.id}${category}${type}`}
-                bgphoto={MakeImgPath(source.poster_path)}
-              >
-                <BoxItemTitle variants={movieTitleMotion}>
-                  {source.title || source.name}
-                </BoxItemTitle>
-              </ListBoxItems>
-            )}
-        </SliderLists>
-      </AnimatePresence>
-    </ItemSlider>
-    {categoryMatch && category === "movie" ? <ModalMovie data={data} category="movie" type={type} /> : null}
-    {categoryMatch && category === "tv" ? <ModalTv data={data} category="tv" type={type} /> : null}
-  </>);
+          <FontAwesomeIcon
+            onClick={decreaseIndex}
+            icon={faAngleLeft} size="2x" />
+        </SliderBtnContainer>
+        <SliderBtnContainer
+          style={{ right: 0 }}
+          variants={sliderMotion}
+        >
+          <FontAwesomeIcon
+            onClick={increaseIndex}
+            icon={faAngleRight} size="2x" />
+        </SliderBtnContainer>
+        <AnimatePresence
+          initial={false}
+          onExitComplete={toggleLeaving}
+        >
+          <SliderLists
+            key={index}
+            variants={sliderMotion}
+            initial="hidden"
+            animate="visible"
+            exit="exit"
+            transition={{
+              type: "tween",
+              duration: 1.3
+            }}
+          >
+            {data?.results
+              .slice(1)
+              .slice(offset * index, offset * index + offset)
+              .map((source: ISliderCommon) =>
+                <ListBoxItems
+                  key={source.id}
+                  onClick={() => onBoxClicked(source.id)}
+                  variants={movieMotion}
+                  whileHover="hover"
+                  transition={{ type: "tween" }}
+                  layoutId={`${source.id}${category}${type}`}
+                  bgphoto={MakeImgPath(source.poster_path)}
+                >
+                  <BoxItemTitle variants={movieTitleMotion}>
+                    {source.title || source.name}
+                  </BoxItemTitle>
+                </ListBoxItems>
+              )}
+          </SliderLists>
+        </AnimatePresence>
+      </ItemSlider>
+      {categoryMatch && category === "movie" ? <ModalMovie data={data} category="movie" type={type} /> : null}
+      {categoryMatch && category === "tv" ? <ModalTv data={data} category="tv" type={type} /> : null}
+    </>
+  );
 }
 
 export default Slider;

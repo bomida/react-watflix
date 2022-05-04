@@ -2,7 +2,7 @@ import { faPlay, faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AnimatePresence, motion, useViewportScroll } from "framer-motion";
 import { useQuery } from "react-query";
-import { Link, useMatch, useNavigate } from "react-router-dom";
+import { Link, Route, Routes, useMatch, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { isPropertyAccessExpression } from "typescript";
 import {
@@ -16,6 +16,7 @@ import {
   ISliderCommon
 } from "../api/api";
 import { MakeImgPath } from "../api/Utility";
+import Play from "../Router";
 
 const Overlay = styled(motion.div)`
   position: fixed;
@@ -218,10 +219,12 @@ function Modal({ data, category, type }: IModal) {
             {clickedMovie && detail ? <>
               <ModalImg bgphoto={MakeImgPath(clickedMovie.backdrop_path)}>
                 <h3>{clickedMovie?.title}</h3>
-                <span>
-                  <FontAwesomeIcon style={{ width: "30px" }} icon={faPlay} />
-                  Play
-                </span>
+                <Link to={`${clickedMovie?.id}/play`}>
+                  <span>
+                    <FontAwesomeIcon style={{ width: "30px" }} icon={faPlay} />
+                    Play
+                  </span>
+                </Link>
               </ModalImg>
               <ModalTextInfo>
                 <TextInfoLeft>

@@ -69,7 +69,7 @@ function Banner({ data, category, type, title }: IBanner) {
       <AnimatePresence>
         <BannerDetail
           onClick={() => onBoxClicked(data?.results[0].id!)}
-          layoutId={`${data?.id}${category}${type}`}
+          layoutId={`${data?.results[0]}${category}${type}`}
         >Detail</BannerDetail>
       </AnimatePresence>
     </BannerWrap>

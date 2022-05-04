@@ -1,4 +1,4 @@
-import { motion, useAnimation, useMotionValue, useViewportScroll } from "framer-motion";
+import { AnimatePresence, motion, useAnimation, useMotionValue, useViewportScroll } from "framer-motion";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -111,20 +111,28 @@ const ScrollMotion = {
     y: 0,
     transition: {
       type: "tween",
-      duration: 0.3,
+      duration: 0.2,
     },
   }
 }
 
+const changePageMotion = {
+  initial: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  },
+}
+
 function Onboarding() {
-  const y = useMotionValue(0);
   const firstAnimate = useAnimation();
   const secondAnimate = useAnimation();
   const thirdAnimate = useAnimation();
   const { scrollY } = useViewportScroll()
   useEffect(() => {
     scrollY.onChange((y) => {
-      console.log(y)
+      // console.log(y)
       if (scrollY.get() > 150) {
         firstAnimate.start("visible");
       } else {
@@ -208,7 +216,7 @@ function Onboarding() {
           </StoryImg>
         </StoryCardItem>
       </StoryCards>
-    </OnboardingWrap >
+    </OnboardingWrap>
   );
 }
 

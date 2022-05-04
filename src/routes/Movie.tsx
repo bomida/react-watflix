@@ -9,6 +9,7 @@ import {
 import { Loader } from "../components/Loader";
 import Banner from "../components/Banner";
 import Slider from "../components/Slider";
+import { useEffect } from "react";
 
 const Wrapper = styled.div`
   height: max-content;

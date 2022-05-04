@@ -1,33 +1,38 @@
-import { lazy } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
-import Movie from "./routes/Movie";
-import Onboarding from "./routes/Onboarding";
-import Play from "./routes/Play";
-import Search from "./routes/Search";
-import Tv from "./routes/Tv";
+import { faWarning } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useRecoilValue } from "recoil";
+import styled from "styled-components";
+import { windowSizeAtom } from "./atom";
+import Router from "./Router";
+import useWindowSize from "./useWindowSize";
 
+const MobileWarning = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-size: 20px;
+  background-color: ${props => props.theme.black.lighter};
+`;
 
 function App() {
+  useWindowSize();
+  const windowSize = useRecoilValue(windowSizeAtom);
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/search/*" element={<Search />}>
-          <Route path="search/:searchId" />
-        </Route>
-        <Route path="/play/*" element={<Play />} />
-        <Route path="/tv/*" element={<Tv />}>
-          <Route path="tv/:tvId" />
-        </Route>
-        <Route path="/movie/*" element={<Movie />}>
-          <Route path="movie/:movieId" />
-        </Route>
-        <Route path="/*" element={<Onboarding />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <>
+      {windowSize.width > 960 ?
+        <Router />
+        : <MobileWarning
+          style={{
+            width: window.innerWidth,
+            height: window.innerHeight
+          }}
+        >
+          <h4>모바일 버전은 아직 지원되지 않습니다.</h4>
+        </MobileWarning>
+      }
+    </>
   );
 }
 

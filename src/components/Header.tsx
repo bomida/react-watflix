@@ -72,6 +72,17 @@ const Search = styled.form`
   svg {
     height: 25px;
   }
+  span {
+    display: inline-block;
+    position: absolute;
+    top: 30px;
+    right: 0;
+    width: 150px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: #ffffff1a;
+  }
 `;
 
 const Input = styled(motion.input)`
@@ -201,7 +212,7 @@ function Header() {
           </motion.svg>
           <Input
             {...register("keyword",
-              { required: "2자 이상 입력해주세요.", minLength: 2 }
+              { required: "2자 이상 입력해주세요.", minLength: 1 }
             )}
             initial={false}
             animate={{ scaleX: searchOpen ? 1 : 0 }}

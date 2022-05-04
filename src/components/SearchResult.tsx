@@ -19,8 +19,7 @@ const Keyword = styled.p`
   }
 `;
 
-const ResultBox = styled(motion.div)`
-`;
+const ResultBox = styled(motion.div)``;
 
 const ResultImg = styled.div<{ bgphoto: string }>`
   aspect-ratio: 3 / 4.5;
