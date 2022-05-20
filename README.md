@@ -1,4 +1,11 @@
 # react-Netflix-clone
+
+<br>
+
+## 소개
+리액트 기초 마스터 강의를 수강 후 이제껏 배운 리액트 훅 또는 라이브러리 등을 사용하여<br>
+파이널 프로젝트를 제작 하였습니다.
+
 <br>
 
 ## 최종 결과물
@@ -16,13 +23,6 @@
 
 ### Modal Tv
 <img width="640" alt="ModalTv" src="https://user-images.githubusercontent.com/93115007/166827809-b6e11942-4dcc-4aac-8acd-05e1e7da35ee.png">
-
-
-<br>
-
-## 소개
-리액트 기초 마스터 강의를 수강 후 이제껏 배운 리액트 훅 또는 라이브러리 등을 사용하여<br>
-파이널 프로젝트를 제작 하였습니다.
 
 <br>
 
